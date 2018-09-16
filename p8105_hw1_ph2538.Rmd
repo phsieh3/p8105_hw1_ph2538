@@ -1,5 +1,34 @@
 ---
 title: "Homework 1"
+author: "Pei Yang Hsieh"
+date: 2018-09-16
 output: github_document
 ---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
+The purpose of this file is to complete Homework 1
+
+# Problem 1
+
+First we create a dataframe containing variables of four different types.
+A random sample of size 10 from a uniform[0, 5] distribution
+A logical vector indicating whether elements of the sample are greater than 2
+A (length-10) character vector
+A (length-10) factor vector
+
+
+```{r example_df}
+
+set.seed(10)
+
+example_df = tibble(
+  samp = rnorm(10, 0:5),
+  vec_logical = c(FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE),
+  vec_char = c("This", "Is", "A", "Character", "Vector", "For", "Homework", "One", "Data", "Science"),
+  vec_factor = factor(c("male", "male", "female", "female", "male", "male", "female", "female", "male", "male"))
+)
+```
 
