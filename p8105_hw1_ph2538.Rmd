@@ -33,4 +33,21 @@ example_df = tibble(
 )
 ```
 
-samp = rnorm(10, 1:5)
+Taking the mean of each variable in dataframe. Taking the mean only works for numeric and logical vectors, not character and factor vectors. Character and factor vectors cannot be recognized as numbers.
+
+```{r mean}
+
+mean(example_df$vec_numeric)
+mean(example_df$vec_logical)
+mean(example_df$vec_char)
+mean(example_df$vec_factor)
+```
+
+Use as.numeric on logical, character, and factor variables. For logical variables, it changes the T/F into 1's and 0's. For character variables, it becomes NA. For factor variables, it becomes 1's and 2's.
+
+```{r apply_as.numeric, eval = FALSE}
+
+as.numeric(example_df$vec_logical)
+as.numeric(example_df$vec_char)
+as.numeric(example_df$vec_factor)
+```
