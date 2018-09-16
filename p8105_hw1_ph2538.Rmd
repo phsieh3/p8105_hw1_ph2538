@@ -7,9 +7,10 @@ output: github_document
 
 ```{r setup, include = FALSE}
 library(tidyverse)
+library(ggplot2)
 ```
 
-The purpose of this file is to complete Homework 1
+The purpose of this file is to complete Homework 1.
 
 # Problem 1
 
@@ -99,3 +100,30 @@ df_normal = tibble(
 * The mean of x is `r mean(df_normal$x)`.
 * The median of x is `r median(df_normal$x)`.
 * The proportion of cases for which logical vector is TRUE is `r mean(df_normal$logical_xy == TRUE)`.
+
+
+## Create scatterplots
+
+```{r logical_scatterplot}
+
+ggplot(df_normal, aes(x = x, y = y, colour = logical_xy))  + geom_point()
+
+ggsave("logical_scatterplot.pdf", height = 4, width = 6)
+```
+The color scale is binary. There is one color for False and one color for True. There is a very clear split between the two colors.
+
+```{r numeric_scatterplot}
+
+ggplot(df_normal, aes(x = x, y = y, colour = numeric_xy))  + geom_point()
+
+```
+
+The color scale is a gradual range from 0 being the darkest to 1 being the lightest color.
+
+```{r factor_scatterplot}
+
+ggplot(df_normal, aes(x = x, y = y, colour = factor_xy))  + geom_point()
+
+```
+
+The color scale is binary. There is one color for False and one color for True. There is a very clear split between the two colors.
