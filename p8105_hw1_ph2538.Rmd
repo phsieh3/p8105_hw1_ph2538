@@ -22,13 +22,15 @@ A (length-10) factor vector
 
 ```{r example_df}
 
-set.seed(10)
+set.seed(1234)
+samp = runif(10, min = 0, max = 5)
 
 example_df = tibble(
-  samp = rnorm(10, 0:5),
-  vec_logical = c(FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE),
+  vec_numeric = samp,
+  vec_logical = c(FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE),
   vec_char = c("This", "Is", "A", "Character", "Vector", "For", "Homework", "One", "Data", "Science"),
   vec_factor = factor(c("male", "male", "female", "female", "male", "male", "female", "female", "male", "male"))
 )
 ```
 
+samp = rnorm(10, 1:5)
