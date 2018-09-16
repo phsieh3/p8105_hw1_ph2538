@@ -92,3 +92,10 @@ df_normal = tibble(
   factor_xy = as.factor(logical_xy)
 )
 ```
+
+------------------------------------------------------------
+
+* The size of dataset is `r dim(df_normal)`.
+* The mean of x is `r mean(df_normal$x)`.
+* The median of x is `r median(df_normal$x)`.
+* The proportion of cases for which logical vector is TRUE is `r mean(df_normal$logical_xy == TRUE)`.
