@@ -13,11 +13,17 @@ The purpose of this file is to complete Homework 1
 
 # Problem 1
 
-First we create a dataframe containing variables of four different types.
-A random sample of size 10 from a uniform[0, 5] distribution
-A logical vector indicating whether elements of the sample are greater than 2
-A (length-10) character vector
-A (length-10) factor vector
+------------------------------------------------------------
+
+## Create a dataframe containing variables of four different types.
+
+*   A random sample of size 10 from a uniform[0, 5] distribution
+
+*   A logical vector indicating whether elements of the sample are greater than 2
+
+*   A (length-10) character vector
+
+*   A (length-10) factor vector
 
 
 ```{r example_df}
@@ -27,13 +33,13 @@ samp = runif(10, min = 0, max = 5)
 
 example_df = tibble(
   vec_numeric = samp,
-  vec_logical = c(FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE),
+  vec_logical = samp > 2,
   vec_char = c("This", "Is", "A", "Character", "Vector", "For", "Homework", "One", "Data", "Science"),
   vec_factor = factor(c("male", "male", "female", "female", "male", "male", "female", "female", "male", "male"))
 )
 ```
 
-Taking the mean of each variable in dataframe. Taking the mean only works for numeric and logical vectors, not character and factor vectors. Character and factor vectors cannot be recognized as numbers.
+## Take the mean of each variable in dataframe. 
 
 ```{r mean}
 
@@ -43,11 +49,46 @@ mean(example_df$vec_char)
 mean(example_df$vec_factor)
 ```
 
-Use as.numeric on logical, character, and factor variables. For logical variables, it changes the T/F into 1's and 0's. For character variables, it becomes NA. For factor variables, it becomes 1's and 2's.
+Taking the mean only works for numeric and logical vectors, not character and factor vectors. Character and factor vectors cannot be recognized as numbers.
+
+## Use as.numeric on logical, character, and factor variables. 
 
 ```{r apply_as.numeric, eval = FALSE}
 
 as.numeric(example_df$vec_logical)
 as.numeric(example_df$vec_char)
 as.numeric(example_df$vec_factor)
+```
+
+For logical variables, it changes the T/F into 1's and 0's. For character variables, it becomes NA. For factor variables, it becomes 1's and 2's.
+
+# Problem 2
+
+------------------------------------------------------------
+
+## Create a dataframe of:
+
+*   x: a random sample of size 1000 from a standard Normal distribution
+
+*   y: a random sample of size 1000 from a standard Normal distribution
+
+*   A logical vector indicating whether the x + y > 0 
+
+*   A numeric vector created by coercing the above logical vector
+
+*   A factor vector created by coercing the above logical vector
+
+```{r df_normal}
+
+set.seed(4321)
+x_1000 = rnorm(1000)
+y_1000 = rnorm(1000)
+
+df_normal = tibble(
+  x = x_1000,
+  y = y_1000,
+  logical_xy = x + y > 0,
+  numeric_xy = as.numeric(logical_xy),
+  factor_xy = as.factor(logical_xy)
+)
 ```
