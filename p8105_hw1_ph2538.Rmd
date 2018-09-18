@@ -112,7 +112,7 @@ logical_scatterplot
 
 ggsave("logical_scatterplot.pdf", height = 4, width = 6)
 ```
-The color scale is binary. There is one color for False and one color for True. There is a very clear split between the two colors.
+The color scale is binary. There is one color for False (red) and one color for True (green). There is a very clear split between the two colors.
 
 ```{r numeric_scatterplot}
 
@@ -132,4 +132,4 @@ factor_scatterplot
 
 ```
 
-The color scale is binary. There is one color for False and one color for True. There is a very clear split between the two colors.
+The color scale is binary. There is one color for False (red) and one color for True (green). There is a very clear split between the two colors.
