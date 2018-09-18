@@ -106,7 +106,9 @@ df_normal = tibble(
 
 ```{r logical_scatterplot}
 
-ggplot(df_normal, aes(x = normal_x, y = normal_y, colour = logical_xy))  + geom_point()
+logical_scatterplot = ggplot(df_normal, aes(x = normal_x, y = normal_y, colour = logical_xy))  + geom_point()
+
+logical_scatterplot
 
 ggsave("logical_scatterplot.pdf", height = 4, width = 6)
 ```
@@ -114,7 +116,9 @@ The color scale is binary. There is one color for False and one color for True. 
 
 ```{r numeric_scatterplot}
 
-ggplot(df_normal, aes(x = normal_x, y = normal_y, colour = numeric_xy))  + geom_point()
+numeric_scatterplot = ggplot(df_normal, aes(x = normal_x, y = normal_y, colour = numeric_xy))  + geom_point()
+
+numeric_scatterplot
 
 ```
 
@@ -122,7 +126,9 @@ The color scale is a gradual range from 0 being the darkest to 1 being the light
 
 ```{r factor_scatterplot}
 
-ggplot(df_normal, aes(x = normal_x, y = normal_y, colour = factor_xy))  + geom_point()
+factor_scatterplot = ggplot(df_normal, aes(x = normal_x, y = normal_y, colour = factor_xy))  + geom_point()
+
+factor_scatterplot
 
 ```
 
