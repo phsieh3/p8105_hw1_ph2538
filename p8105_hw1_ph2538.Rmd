@@ -1,7 +1,7 @@
 ---
 title: "Homework 1"
 author: "Pei Yang Hsieh"
-date: 2018-09-16
+date: "2018-09-18"
 output: github_document
 ---
 
@@ -32,7 +32,7 @@ The purpose of this file is to complete Homework 1.
 set.seed(1234)
 samp = runif(10, min = 0, max = 5)
 
-example_df = tibble(
+df_uniform = tibble(
   vec_numeric = samp,
   vec_logical = samp > 2,
   vec_char = c("This", "Is", "A", "Character", "Vector", "For", "Homework", "One", "Data", "Science"),
@@ -44,10 +44,10 @@ example_df = tibble(
 
 ```{r mean}
 
-mean(example_df$vec_numeric)
-mean(example_df$vec_logical)
-mean(example_df$vec_char)
-mean(example_df$vec_factor)
+mean(df_uniform$vec_numeric)
+mean(df_uniform$vec_logical)
+mean(df_uniform$vec_char)
+mean(df_uniform$vec_factor)
 ```
 
 Taking the mean only works for numeric and logical vectors, not character and factor vectors. Character and factor vectors cannot be recognized as numbers.
@@ -56,9 +56,9 @@ Taking the mean only works for numeric and logical vectors, not character and fa
 
 ```{r apply_as.numeric, eval = FALSE}
 
-as.numeric(example_df$vec_logical)
-as.numeric(example_df$vec_char)
-as.numeric(example_df$vec_factor)
+as.numeric(df_uniform$vec_logical)
+as.numeric(df_uniform$vec_char)
+as.numeric(df_uniform$vec_factor)
 ```
 
 For logical variables, it changes the T/F into 1's and 0's. For character variables, it becomes NA. For factor variables, it becomes 1's and 2's.
@@ -86,9 +86,9 @@ x_1000 = rnorm(1000)
 y_1000 = rnorm(1000)
 
 df_normal = tibble(
-  x = x_1000,
-  y = y_1000,
-  logical_xy = x + y > 0,
+  normal_x = x_1000,
+  normal_y = y_1000,
+  logical_xy = normal_x + normal_y > 0,
   numeric_xy = as.numeric(logical_xy),
   factor_xy = as.factor(logical_xy)
 )
@@ -97,8 +97,8 @@ df_normal = tibble(
 ------------------------------------------------------------
 
 * The size of dataset is `r dim(df_normal)`.
-* The mean of x is `r mean(df_normal$x)`.
-* The median of x is `r median(df_normal$x)`.
+* The mean of x is `r mean(df_normal$normal_x)`.
+* The median of x is `r median(df_normal$normal_x)`.
 * The proportion of cases for which logical vector is TRUE is `r mean(df_normal$logical_xy == TRUE)`.
 
 
@@ -106,7 +106,7 @@ df_normal = tibble(
 
 ```{r logical_scatterplot}
 
-ggplot(df_normal, aes(x = x, y = y, colour = logical_xy))  + geom_point()
+ggplot(df_normal, aes(x = normal_x, y = normal_y, colour = logical_xy))  + geom_point()
 
 ggsave("logical_scatterplot.pdf", height = 4, width = 6)
 ```
@@ -114,7 +114,7 @@ The color scale is binary. There is one color for False and one color for True. 
 
 ```{r numeric_scatterplot}
 
-ggplot(df_normal, aes(x = x, y = y, colour = numeric_xy))  + geom_point()
+ggplot(df_normal, aes(x = normal_x, y = normal_y, colour = numeric_xy))  + geom_point()
 
 ```
 
@@ -122,7 +122,7 @@ The color scale is a gradual range from 0 being the darkest to 1 being the light
 
 ```{r factor_scatterplot}
 
-ggplot(df_normal, aes(x = x, y = y, colour = factor_xy))  + geom_point()
+ggplot(df_normal, aes(x = normal_x, y = normal_y, colour = factor_xy))  + geom_point()
 
 ```
 
