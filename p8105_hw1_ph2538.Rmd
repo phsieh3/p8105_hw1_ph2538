@@ -59,9 +59,23 @@ Taking the mean only works for numeric and logical vectors, not character and fa
 as.numeric(df_uniform$vec_logical)
 as.numeric(df_uniform$vec_char)
 as.numeric(df_uniform$vec_factor)
+
 ```
 
 For logical variables, it changes the T/F into 1's and 0's. For character variables, it becomes NA. For factor variables, it becomes 1's and 2's.
+
+```{r apply_as.numeric2}
+#character to factor to numeric
+
+as.numeric(as.factor(df_uniform$vec_char))
+
+#factor to character to numeric
+as.numeric(as.character(df_uniform$vec_factor))
+```
+
+When changing character to factor, it becomes interpreted as a factor, which assigns them into categorical number. So then when you change factor to numeric, it outputs categorical ordered numbers. 
+
+When changing factors into characters and then to numeric, there is no longer a numeric significance. This outputs NA's. 
 
 # Problem 2
 
